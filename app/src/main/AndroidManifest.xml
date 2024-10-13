@@ -13,12 +13,21 @@
         android:theme="@style/Theme.Kotlin_Movie_App"
         tools:targetApi="31">
         <activity
+            android:name=".auth.ForgetPassword"
+            android:exported="false" />
+        <activity
+            android:name=".auth.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".auth.Login"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".splash.Splash_Screen"
-            android:theme="@style/Base.Theme.Kotlin_Movie_App"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Base.Theme.Kotlin_Movie_App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
