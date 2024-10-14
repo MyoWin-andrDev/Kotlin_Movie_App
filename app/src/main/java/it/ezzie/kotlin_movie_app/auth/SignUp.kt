@@ -21,10 +21,16 @@ class SignUp : AppCompatActivity() {
     }
     private fun initEditText(){
         binding.btnSignUp.setOnClickListener{
-            var mail = binding.emailLayout.editText!!.text.toString()
-            var password = binding.passwordLayout.editText!!.text.toString()
+            val mail = binding.emailLayout.editText!!.text.toString()
+            val password = binding.passwordLayout.editText!!.text.toString()
 
-            if(TextUtils.isEmpty(mail)){
+            if(TextUtils.isEmpty(mail) && TextUtils.isEmpty(password)){
+                binding.emailLayout.error = "Please Enter Email"
+                binding.emailLayout.requestFocus()
+                binding.passwordLayout.error = "Please Enter Password"
+                binding.passwordLayout.requestFocus()
+            }
+            else if(TextUtils.isEmpty(mail)){
                 binding.emailLayout.error = "Please Enter Email"
                 binding.emailLayout.requestFocus()
             }
@@ -32,13 +38,6 @@ class SignUp : AppCompatActivity() {
                 binding.passwordLayout.error = "Please Enter Password"
                 binding.passwordLayout.requestFocus()
             }
-            else if(TextUtils.isEmpty(mail) && TextUtils.isEmpty(password)){
-                binding.emailLayout.error = "Please Enter Email"
-                binding.emailLayout.requestFocus()
-                binding.passwordLayout.error = "Please Enter Password"
-                binding.passwordLayout.requestFocus()
-            }
-
             else{
                 Toast.makeText(this, "Created Successfully", Toast.LENGTH_SHORT).show()
             }
