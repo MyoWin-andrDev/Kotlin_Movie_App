@@ -55,23 +55,18 @@
             android:id="@+id/emailLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:errorEnabled="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emaileditTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:textColor="@color/primary"
                 android:background="@drawable/bg_edit_txt"/>
 
-            <TextView
-                android:id="@+id/emailError"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/error"
-                android:textSize="16dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,6 +84,7 @@
             android:id="@+id/passwordLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:errorEnabled="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp">
 
@@ -99,13 +95,6 @@
                 android:textColor="@color/primary"
                 android:background="@drawable/bg_edit_txt"/>
 
-            <TextView
-                android:id="@+id/passwordError"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="@color/error"
-                android:textSize="16dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

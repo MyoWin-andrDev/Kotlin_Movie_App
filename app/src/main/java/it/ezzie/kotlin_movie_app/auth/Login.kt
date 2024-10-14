@@ -2,6 +2,7 @@ package it.ezzie.kotlin_movie_app.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,10 +17,30 @@ class Login : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initBtnListener();
+
+    }
+
+    private fun initBtnListener() {
+        binding.btnLogIn.setOnClickListener{
+            var mail = binding.emailLayout.editText!!.text.toString()
+            var password = binding.passwordLayout.editText!!.text.toString()
+            if(TextUtils.isEmpty(mail)){
+                binding.emailLayout.error = "Please Enter Email"
+                binding.emailLayout.requestFocus()
+            }
+            else if(TextUtils.isEmpty(password)){
+                binding.passwordLayout.error = "Please Enter Password"
+                binding.passwordLayout.requestFocus()
+            }
+        }
         binding.btnCreate.setOnClickListener{
             var intent = Intent(this, SignUp::class.java)
             startActivity(intent)
-            finish()
+        }
+        binding.forgetPwdText.setOnClickListener{
+            var intent = Intent(this, ForgetPassword::class.java)
+            startActivity(intent)
         }
     }
 }
