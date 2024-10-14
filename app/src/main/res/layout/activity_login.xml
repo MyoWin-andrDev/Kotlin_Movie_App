@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome Back"
-        android:textColor="@color/primary"
+        android:textColor="@color/tertiary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="32sp"
@@ -26,13 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please Enter Your Account Details"
-        android:textColor="@color/primary"
+        android:textColor="@color/tertiary"
         app:layout_constraintTop_toBottomOf="@id/greetingTxt"
         app:layout_constraintStart_toStartOf="@id/greetingTxt"
         android:textSize="23sp"
         android:layout_marginTop="10dp"/>
 
     <LinearLayout
+        android:id="@+id/inputLinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/greetingTxt"
@@ -40,8 +41,9 @@
         android:layout_marginTop="40dp"
         android:layout_marginStart="15dp"
         android:orientation="vertical">
-
+<!--        Email-->
         <TextView
+            android:id="@+id/emailTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
@@ -56,10 +58,68 @@
             android:layout_marginEnd="20dp">
             
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/primary"
+                android:background="@drawable/bg_edit_txt"/>
             
         </com.google.android.material.textfield.TextInputLayout>
+
+<!--        Password-->
+        <TextView
+            android:id="@+id/passwordTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passwod"
+            android:textColor="@color/primary"
+            android:textSize="20sp"
+            android:fontFamily="@font/lato_regular"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="@color/primary"
+                android:background="@drawable/bg_edit_txt"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/forgetPwdText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/inputLinear"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Forgot Password"
+        android:textColor="@color/error"
+        android:textSize="16dp"
+        android:layout_margin="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forgetPwdText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
 
 
     </LinearLayout>

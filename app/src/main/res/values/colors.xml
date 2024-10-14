@@ -3,5 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#2d6a44</color>
+    <color name="secondary">#4f6353</color>
+    <color name="tertiary">#3a646f</color>
     <color name="gray">#f6fbf3</color>
+    <color name="error">#ba1a1a</color>
 </resources>
