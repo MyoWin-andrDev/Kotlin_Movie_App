@@ -11,26 +11,26 @@
         android:id="@+id/greetingTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create An ccount"
+        android:text="Create An Account"
         android:textColor="@color/tertiary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textSize="32sp"
         android:fontFamily="@font/roboto_regular"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"/>
 
     <TextView
         android:id="@+id/detailTxt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Please Enter Your Personal Data To Create Account"
         android:textColor="@color/tertiary"
         app:layout_constraintTop_toBottomOf="@id/greetingTxt"
         app:layout_constraintStart_toStartOf="@id/greetingTxt"
         android:textSize="23sp"
-        android:layout_marginTop="10dp"/>
+        android:layout_margin="20dp" />
 
     <LinearLayout
         android:id="@+id/inputLinear"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/greetingTxt"
         app:layout_constraintTop_toBottomOf="@id/detailTxt"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="15dp"
         android:orientation="vertical">
         <!--        Email-->

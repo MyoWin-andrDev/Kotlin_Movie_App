@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
 import it.ezzie.kotlin_movie_app.R
 import it.ezzie.kotlin_movie_app.databinding.ActivitySignUpBinding
 
@@ -39,7 +40,19 @@ class SignUp : AppCompatActivity() {
                 binding.passwordLayout.requestFocus()
             }
             else{
-                Toast.makeText(this, "Created Successfully", Toast.LENGTH_SHORT).show()
+                registerAccount(mail,password);
+            }
+        }
+    }
+    private fun registerAccount(mail : String , password : String){
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(mail,password).addOnCompleteListener { task ->
+            if(task.isSuccessful){
+                Toast.makeText(this, "Successfully Registered", Toast.LENGTH_SHORT).show()
+                finish()
+                onBackPressed()
+            }
+            else{
+                Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show()
             }
         }
     }
