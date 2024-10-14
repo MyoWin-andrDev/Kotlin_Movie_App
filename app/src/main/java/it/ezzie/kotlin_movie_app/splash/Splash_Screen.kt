@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import it.ezzie.kotlin_movie_app.MainActivity
 import it.ezzie.kotlin_movie_app.R
+import it.ezzie.kotlin_movie_app.auth.Login
 import it.ezzie.kotlin_movie_app.databinding.ActivitySplashScreenBinding
 
 class Splash_Screen : AppCompatActivity() {
@@ -26,7 +27,7 @@ class Splash_Screen : AppCompatActivity() {
         splashImg.animate().setDuration(2000).alpha(1f).withEndAction {
             overridePendingTransition(android.R.animator.fade_in, android.R.animator.fade_out)
             finish()
-            var intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
     }
