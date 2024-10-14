@@ -119,7 +119,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSignUp"
+            android:id="@+id/btnLogIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_sign_in"
@@ -127,7 +127,7 @@
             android:textColor="@color/sufaceBright"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLogIn"
+            android:id="@+id/btnCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_sign_up"
