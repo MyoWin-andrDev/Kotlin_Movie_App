@@ -6,16 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import it.ezzie.kotlin_movie_app.R
+import it.ezzie.kotlin_movie_app.databinding.ActivitySignUpBinding
 
 class SignUp : AppCompatActivity() {
+    private lateinit var binding : ActivitySignUpBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_sign_up)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initEditText();
+    }
+    private fun initEditText(){
+        var mail = binding.emailInput!!.text
+        var password = binding.passwordInput.text
     }
 }

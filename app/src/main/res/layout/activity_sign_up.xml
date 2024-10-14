@@ -95,45 +95,44 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/forgetPwdText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/inputLinear"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="Forgot Password"
-        android:textColor="@color/error"
-        android:textSize="16dp"
-        android:layout_margin="20dp"/>
 
     <LinearLayout
         android:id="@+id/btnLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forgetPwdText"
+        app:layout_constraintTop_toBottomOf="@id/inputLinear"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_sign_in"
-            android:text="Sign In"
-            android:textColor="@color/sufaceBright"/>
-
-        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_sign_up"
-            android:text="Create New Account"
+            android:background="@drawable/bg_sign_in"
+            android:text="Sign Up"
+            android:textColor="@color/sufaceBright"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already Have An Account?"
             android:textColor="@color/primary"
-            android:layout_marginTop="20dp"/>
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_sign_up"
+            android:text="Log In"
+            android:textColor="@color/primary"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
@@ -160,7 +159,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Or Continue With"
+            android:text="Or Sign Up With"
             android:textColor="@color/primary"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
