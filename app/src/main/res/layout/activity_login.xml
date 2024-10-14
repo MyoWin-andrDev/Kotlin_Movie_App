@@ -116,10 +116,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp">
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_sigin_in"
             android:text="Sign In"
+            android:textColor="@color/sufaceBright"/>
 
 
     </LinearLayout>
