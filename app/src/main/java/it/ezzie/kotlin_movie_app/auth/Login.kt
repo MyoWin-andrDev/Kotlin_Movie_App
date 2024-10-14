@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import it.ezzie.kotlin_movie_app.MainActivity
 import it.ezzie.kotlin_movie_app.R
 import it.ezzie.kotlin_movie_app.databinding.ActivityLoginBinding
 
@@ -51,7 +52,7 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
         binding.forgetPwdText.setOnClickListener{
-            var intent = Intent(this, ForgetPassword::class.java)
+            val intent = Intent(this, ForgetPassword::class.java)
             startActivity(intent)
         }
     }
@@ -59,11 +60,11 @@ class Login : AppCompatActivity() {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(mail, password).addOnCompleteListener { task ->
             if(task.isSuccessful){
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                finish()
-                onBackPressed()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
             else{
-
+                Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
             }
         }
     }
