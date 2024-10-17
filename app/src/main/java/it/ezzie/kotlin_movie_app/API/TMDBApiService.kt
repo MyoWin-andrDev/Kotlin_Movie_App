@@ -7,6 +7,7 @@ interface TMDBApiService {
 
     fun getPopularMovie(
 
-        
+        @Header("Authorization") authToken : String,
+        @Header("accept") accept : String = "application/json"
     )
 }
