@@ -11,6 +11,7 @@ interface TMDBApiService {
         @Header("Authorization") authToken : String,
         @Header("accept") accept : String = "application/json",
         @Query("language") language : String ="en-US",
-        @Query("page") page: Int = 1
+
+
     )
 }
