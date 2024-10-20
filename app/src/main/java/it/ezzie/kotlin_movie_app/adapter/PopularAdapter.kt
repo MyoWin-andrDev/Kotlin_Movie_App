@@ -26,7 +26,7 @@ class PopularAdapter (val context: Context, val movieList: List<Result>) : Recyc
         val movie = movieList[position]
         //Setting Image With Glide
         Glide.with(context)
-            .load("https://image.tmdb.org/t/p/w500" + movie.backdrop_path)
+            .load("https://image.tmdb.org/t/p/w500" + movie.poster_path)
             .into(holder.binding.imageView)
         holder.binding.movieTitle.text = movie.title
     }
