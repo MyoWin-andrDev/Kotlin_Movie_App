@@ -115,11 +115,13 @@ class HomePage : AppCompatActivity() {
         val call = apiService.getTopRatedMovie(authToken)
             call.enqueue(object:Callback<Movie>{
                 override fun onResponse(p0: Call<Movie>, response: Response<Movie>) {
-                    val movies = response.body()!!.results
-                    response.body()!!.results.forEach {
-                        movieList = movies
-                        movieAdapter = MovieAdapter(this@HomePage, movieList)
-                        binding.latestRecyclerView.adapter = movieAdapter
+                    if (response.isSuccessful) {
+                        val movies = response.body()!!.results
+                        response.body()!!.results.forEach {
+                            movieList = movies
+                            movieAdapter = MovieAdapter(this@HomePage, movieList)
+                            binding.latestRecyclerView.adapter = movieAdapter
+                        }
                     }
                 }
 
