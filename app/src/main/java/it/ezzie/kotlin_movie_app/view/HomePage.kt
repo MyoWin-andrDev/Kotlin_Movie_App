@@ -29,12 +29,13 @@ class HomePage : AppCompatActivity() {
         initUI();
         loadPopularMovie();
         loadUpcomingMovie()
+        loadTopRatedMovie()
     }
 
     private fun initUI(){
         binding.popularRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.upcomingRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        //bindingPopular.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.latestRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun loadPopularMovie() {
