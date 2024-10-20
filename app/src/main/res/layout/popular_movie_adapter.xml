@@ -2,26 +2,39 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/secondaryContainer">
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="140dp"
                 android:layout_height="250dp"
-                android:src="@drawable/movie_profile"/>
+                android:src="@drawable/movie_profile"
+                android:background="@drawable/bg_movie"
+                android:scaleType="centerCrop"/>
 
             <TextView
+                android:id="@+id/movieTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Viking"
+                android:textColor="@color/primary"
+                android:fontFamily="@font/lato_regular"
+                android:textStyle="bold"
+                android:textSize="16sp"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"/>
         </LinearLayout>
