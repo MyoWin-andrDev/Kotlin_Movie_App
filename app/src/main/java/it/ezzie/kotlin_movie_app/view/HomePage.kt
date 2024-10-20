@@ -5,9 +5,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import it.ezzie.kotlin_movie_app.api.TMDBApiService
 import it.ezzie.kotlin_movie_app.R
+import it.ezzie.kotlin_movie_app.adapter.PopularAdapter
 import it.ezzie.kotlin_movie_app.data.Movie
+import it.ezzie.kotlin_movie_app.data.Result
+import it.ezzie.kotlin_movie_app.databinding.ActivityHomePageBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,11 +19,21 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class HomePage : AppCompatActivity() {
+    private lateinit var bindingPopular : ActivityHomePageBinding
+    private lateinit var popularMovieList: List<Result>
+    private lateinit var popularAdapter: PopularAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_home_page)
+        bindingPopular = ActivityHomePageBinding.inflate(layoutInflater)
+        setContentView(bindingPopular.root)
+        popularMovieList = arrayListOf()
+        initUI();
         loadPopularMovie();
+    }
+
+    private fun initUI(){
+        bindingPopular.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     private fun loadPopularMovie() {
@@ -40,6 +54,11 @@ class HomePage : AppCompatActivity() {
                 if (response.isSuccessful) {
                   val movies = response.body()!!.results
                     Log.d("Movies", movies.toString())
+                    response.body()!!.results.forEach {
+                        popularMovieList = movies
+                        popularAdapter = PopularAdapter(this@HomePage, popularMovieList)
+                        bindingPopular.recyclerView.adapter = popularAdapter
+                    }
                 } else {
                     Toast.makeText(this@HomePage, "Response Successful", Toast.LENGTH_SHORT).show()
                 }

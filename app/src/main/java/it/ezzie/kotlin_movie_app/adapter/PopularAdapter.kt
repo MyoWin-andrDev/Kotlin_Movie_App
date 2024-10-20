@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import it.ezzie.kotlin_movie_app.data.Result
 import it.ezzie.kotlin_movie_app.databinding.PopularMovieAdapterBinding
 
@@ -22,7 +23,11 @@ class PopularAdapter (val context: Context, val movieList: List<Result>) : Recyc
     }
 
     override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
-        var movie = movieList.get(position)
-        holder.binding.imageView.set
+        val movie = movieList[position]
+        //Setting Image With Glide
+        Glide.with(context)
+            .load("https://image.tmdb.org/t/p/w500" + movie.backdrop_path)
+            .into(holder.binding.imageView)
+        holder.binding.movieTitle.text = movie.title
     }
 }
