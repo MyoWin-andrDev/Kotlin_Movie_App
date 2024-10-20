@@ -1,11 +1,11 @@
 package it.ezzie.kotlin_movie_app.view
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import it.ezzie.kotlin_movie_app.API.TMDBApiService
+import it.ezzie.kotlin_movie_app.api.TMDBApiService
 import it.ezzie.kotlin_movie_app.R
 import it.ezzie.kotlin_movie_app.data.Movie
 import retrofit2.Call
@@ -36,12 +36,17 @@ class HomePage : AppCompatActivity() {
         //Making Api Call
         val call = apiService.getPopularMovie(authToken)
         call.enqueue(object:Callback<Movie>{
-            override fun onResponse(p0: Call<Movie>, p1: Response<Movie>) {
-                TODO("Not yet implemented")
+            override fun onResponse(p0: Call<Movie>, response: Response<Movie>) {
+                if (response.isSuccessful) {
+                  val movies = response.body().toString()
+                    Log.d("Movies", movies)
+                } else {
+                    Toast.makeText(this@HomePage, "Response Successful", Toast.LENGTH_SHORT).show()
+                }
             }
 
-            override fun onFailure(p0: Call<Movie>, p1: Throwable) {
-                TODO("Not yet implemented")
+            override fun onFailure(p0: Call<Movie>, t: Throwable){
+                    Toast.makeText(this@HomePage, "Response Failed ${t.message}", Toast.LENGTH_SHORT).show()
             }
 
         })

@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import it.ezzie.kotlin_movie_app.MainActivity
 import it.ezzie.kotlin_movie_app.R
 import it.ezzie.kotlin_movie_app.databinding.ActivityLoginBinding
+import it.ezzie.kotlin_movie_app.view.HomePage
 
 class Login : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding
@@ -60,7 +61,7 @@ class Login : AppCompatActivity() {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(mail, password).addOnCompleteListener { task ->
             if(task.isSuccessful){
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, HomePage::class.java)
                 startActivity(intent)
             }
             else{

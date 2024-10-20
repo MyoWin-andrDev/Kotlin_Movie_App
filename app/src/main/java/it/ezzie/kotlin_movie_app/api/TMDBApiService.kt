@@ -1,6 +1,5 @@
-package it.ezzie.kotlin_movie_app.API
+package it.ezzie.kotlin_movie_app.api
 
-import androidx.browser.trusted.Token
 import it.ezzie.kotlin_movie_app.data.Movie
 import retrofit2.Call
 import retrofit2.http.GET
