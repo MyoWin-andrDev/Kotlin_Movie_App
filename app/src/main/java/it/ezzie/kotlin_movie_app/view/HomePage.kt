@@ -6,7 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import it.ezzie.kotlin_movie_app.api.TMDBApiService
-import it.ezzie.kotlin_movie_app.adapter.PopularAdapter
+import it.ezzie.kotlin_movie_app.adapter.MovieAdapter
 import it.ezzie.kotlin_movie_app.data.Movie
 import it.ezzie.kotlin_movie_app.data.Result
 import it.ezzie.kotlin_movie_app.databinding.ActivityHomePageBinding
@@ -17,21 +17,24 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class HomePage : AppCompatActivity() {
-    private lateinit var bindingPopular : ActivityHomePageBinding
+    private lateinit var binding : ActivityHomePageBinding
     private lateinit var movieList: List<Result>
-    private lateinit var popularAdapter: PopularAdapter
+    private lateinit var movieAdapter: MovieAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        bindingPopular = ActivityHomePageBinding.inflate(layoutInflater)
-        setContentView(bindingPopular.root)
+        binding = ActivityHomePageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         movieList = arrayListOf()
         initUI();
         loadPopularMovie();
+        loadUpcomingMovie()
     }
 
     private fun initUI(){
-        bindingPopular.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.popularRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.upcomingRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        //bindingPopular.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun loadPopularMovie() {
@@ -53,8 +56,8 @@ class HomePage : AppCompatActivity() {
                   val movies = response.body()!!.results
                     response.body()!!.results.forEach {
                         movieList = movies
-                        popularAdapter = PopularAdapter(this@HomePage, movieList)
-                        bindingPopular.popularRecyclerView.adapter = popularAdapter
+                        movieAdapter = MovieAdapter(this@HomePage, movieList)
+                        binding.popularRecyclerView.adapter = movieAdapter
                     }
                 } else {
                     Toast.makeText(this@HomePage, "Response Successful", Toast.LENGTH_SHORT).show()
@@ -84,7 +87,8 @@ class HomePage : AppCompatActivity() {
                     val movies = response.body()!!.results
                     response.body()!!.results.forEach {
                         movieList = movies
-                        popularAdapter = PopularAdapter(this@HomePage, movieList)
+                        movieAdapter = MovieAdapter(this@HomePage, movieList)
+                        binding.upcomingRecyclerView.adapter = movieAdapter
                     }
                 }
             }
@@ -94,5 +98,34 @@ class HomePage : AppCompatActivity() {
             }
 
         })
+    }
+
+    fun loadTopRatedMovie(){
+        //Making Retrofit Instance
+        val retrofit : Retrofit = Retrofit.Builder()
+            .baseUrl("https://api.themoviedb.org/3/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val apiService = retrofit.create(TMDBApiService::class.java)
+        //Making Authentication Token
+        val authToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzcxNDkwMjY5MjJiZmQ0YTY4MmYyZWFiYTNkOGFiZiIsIm5iZiI6MTcyOTM1ODAyMy4zMTkzMjksInN1YiI6IjY3MTNlNzU3OTlmMjJmMzI2YWFkMjJhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EcdIVTEeNaUcyOtV_cOpr8oaO5go6K2KklKXdQL_NR0"
+        //Making API Call
+        val call = apiService.getTopRatedMovie(authToken)
+            call.enqueue(object:Callback<Movie>{
+                override fun onResponse(p0: Call<Movie>, response: Response<Movie>) {
+                    val movies = response.body()!!.results
+                    response.body()!!.results.forEach {
+                        movieList = movies
+                        movieAdapter = MovieAdapter(this@HomePage, movieList)
+                        binding.latestRecyclerView.adapter = movieAdapter
+                    }
+                }
+
+                override fun onFailure(p0: Call<Movie>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
     }
 }

@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import it.ezzie.kotlin_movie_app.data.Result
 import it.ezzie.kotlin_movie_app.databinding.PopularMovieAdapterBinding
 
-class PopularAdapter (val context: Context, val movieList: List<Result>) : RecyclerView.Adapter<PopularAdapter.PopularViewHolder>(){
+class MovieAdapter (val context: Context, val movieList: List<Result>) : RecyclerView.Adapter<MovieAdapter.PopularViewHolder>(){
 
     class PopularViewHolder (var binding : PopularMovieAdapterBinding) : RecyclerView.ViewHolder(binding.root){}
 
