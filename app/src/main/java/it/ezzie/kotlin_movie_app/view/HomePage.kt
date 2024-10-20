@@ -38,8 +38,8 @@ class HomePage : AppCompatActivity() {
         call.enqueue(object:Callback<Movie>{
             override fun onResponse(p0: Call<Movie>, response: Response<Movie>) {
                 if (response.isSuccessful) {
-                  val movies = response.body().toString()
-                    Log.d("Movies", movies)
+                  val movies = response.body()!!.results
+                    Log.d("Movies", movies.toString())
                 } else {
                     Toast.makeText(this@HomePage, "Response Successful", Toast.LENGTH_SHORT).show()
                 }
