@@ -86,7 +86,7 @@ class HomePage : AppCompatActivity() {
             override fun onResponse(p0: Call<Movie>, response: Response<Movie>) {
                 if(response.isSuccessful){
                     val movies = response.body()!!.results
-                    response.body()!!.results.forEach {
+                    response.body()!!.results.forEach { _ ->
                         movieList = movies
                         movieAdapter = MovieAdapter(this@HomePage, movieList)
                         binding.upcomingRecyclerView.adapter = movieAdapter
@@ -103,13 +103,13 @@ class HomePage : AppCompatActivity() {
 
     fun loadTopRatedMovie(){
         //Making Retrofit Instance
-        val retrofit : Retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
             .baseUrl("https://api.themoviedb.org/3/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val apiService = retrofit.create(TMDBApiService::class.java)
-        //Making Authentication Token
+        //Making Authorization Token
         val authToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzcxNDkwMjY5MjJiZmQ0YTY4MmYyZWFiYTNkOGFiZiIsIm5iZiI6MTcyOTM1ODAyMy4zMTkzMjksInN1YiI6IjY3MTNlNzU3OTlmMjJmMzI2YWFkMjJhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EcdIVTEeNaUcyOtV_cOpr8oaO5go6K2KklKXdQL_NR0"
         //Making API Call
         val call = apiService.getTopRatedMovie(authToken)

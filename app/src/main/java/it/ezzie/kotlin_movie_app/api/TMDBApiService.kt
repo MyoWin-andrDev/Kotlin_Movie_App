@@ -25,7 +25,7 @@ interface TMDBApiService {
 
     @GET("movie/top_rated")
     fun getTopRatedMovie(
-        @Header("Authentication") authToken : String,
+        @Header("Authorization") authToken : String,
         @Header("accept") accept : String = "application/json",
         @Query("language") language : String = "en-US",
         @Query("page") page : Int = 1,
