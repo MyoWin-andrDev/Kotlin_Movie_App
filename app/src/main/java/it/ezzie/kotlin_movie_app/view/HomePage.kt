@@ -58,6 +58,7 @@ class HomePage : AppCompatActivity() {
                         movieList = movies
                         movieAdapter = MovieAdapter(this@HomePage, movieList)
                         binding.popularRecyclerView.adapter = movieAdapter
+                    }
                 } else {
                     Toast.makeText(this@HomePage, "Response Successful", Toast.LENGTH_SHORT).show()
                 }
