@@ -55,11 +55,9 @@ class HomePage : AppCompatActivity() {
             override fun onResponse(p0: Call<Movie>, response: Response<Movie>) {
                 if (response.isSuccessful) {
                   val movies = response.body()!!.results
-                    response.body()!!.results.forEach {
                         movieList = movies
                         movieAdapter = MovieAdapter(this@HomePage, movieList)
                         binding.popularRecyclerView.adapter = movieAdapter
-                    }
                 } else {
                     Toast.makeText(this@HomePage, "Response Successful", Toast.LENGTH_SHORT).show()
                 }
