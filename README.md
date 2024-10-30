@@ -20,4 +20,4 @@ A sample Android movie app built with Kotlin, designed to help beginners learn f
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/MyoWin-andrDev/Kotlin_Movie_App.git
+   https://github.com/MyoWin-andrDev/Sample_Movie_App
