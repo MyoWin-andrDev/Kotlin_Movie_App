@@ -47,7 +47,7 @@ class HomePage : AppCompatActivity() {
 
         val apiService = retrofit.create(TMDBApiService::class.java)
         //Define Authorization Token
-        val authToken = "Enter Authorization Token" // From TMDB
+        val authToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzcxNDkwMjY5MjJiZmQ0YTY4MmYyZWFiYTNkOGFiZiIsIm5iZiI6MTcyOTM1ODAyMy4zMTkzMjksInN1YiI6IjY3MTNlNzU3OTlmMjJmMzI2YWFkMjJhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EcdIVTEeNaUcyOtV_cOpr8oaO5go6K2KklKXdQL_NR0"
 
         //Making Api Call
         val call = apiService.getPopularMovie(authToken)
@@ -58,7 +58,6 @@ class HomePage : AppCompatActivity() {
                         movieList = movies
                         movieAdapter = MovieAdapter(this@HomePage, movieList)
                         binding.popularRecyclerView.adapter = movieAdapter
-                    }
                 } else {
                     Toast.makeText(this@HomePage, "Response Successful", Toast.LENGTH_SHORT).show()
                 }
@@ -78,7 +77,7 @@ class HomePage : AppCompatActivity() {
             .build()
 
         val apiService = retrofit.create(TMDBApiService::class.java)
-        val authToken = "Enter Authorization Token" // From TMDB
+        val authToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzcxNDkwMjY5MjJiZmQ0YTY4MmYyZWFiYTNkOGFiZiIsIm5iZiI6MTcyOTM1ODAyMy4zMTkzMjksInN1YiI6IjY3MTNlNzU3OTlmMjJmMzI2YWFkMjJhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EcdIVTEeNaUcyOtV_cOpr8oaO5go6K2KklKXdQL_NR0"
     //Making Api Call
         val call = apiService.getUpcomingMovie(authToken)
         call.enqueue(object : Callback<Movie>{
@@ -109,7 +108,7 @@ class HomePage : AppCompatActivity() {
 
         val apiService = retrofit.create(TMDBApiService::class.java)
         //Making Authorization Token
-        val authToken = "Enter Authorization Token" // From TMDB
+        val authToken = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNzcxNDkwMjY5MjJiZmQ0YTY4MmYyZWFiYTNkOGFiZiIsIm5iZiI6MTcyOTM1ODAyMy4zMTkzMjksInN1YiI6IjY3MTNlNzU3OTlmMjJmMzI2YWFkMjJhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EcdIVTEeNaUcyOtV_cOpr8oaO5go6K2KklKXdQL_NR0"
         //Making API Call
         val call = apiService.getTopRatedMovie(authToken)
             call.enqueue(object:Callback<Movie>{
