@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "195520040371",
+    "project_id": "kotlin-movie-app",
+    "storage_bucket": "kotlin-movie-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195520040371:android:dc89189f3a12d318c58fc6",
+        "android_client_info": {
+          "package_name": "it.ezzie.kotlin_movie_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrntkM28iB15Kio6zivfCj3kytJfBDq-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
